@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { decrementCounter, incrementCounter} from "../Redux/userSlice";
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectMemberTitles,addDataToMemberTitles, removeDataFromMemberTitles, filterDataFromMemberTitles} from "../Redux/userSlice";
 import TabButton from './TabButton'
 import { BiMaleFemale } from "react-icons/bi";
 import { IoPersonOutline } from "react-icons/io5";
 import { MdPerson3, MdGirl, MdBoy } from "react-icons/md";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import Counter from './Counter';
 import MobileEmail from './MobileEmail';
 import './SelfFamilyTab.css'
 
 const SelfFamilyTab = () => {
+    const memberTitles = useSelector(selectMemberTitles);
     const [showDependents, setShowDependents] = useState(false);
     const [showSelf, setShowSelf] = useState(false);
     const [showSelfDependent, setShowSelfDependent] = useState(false);
@@ -19,6 +20,11 @@ const SelfFamilyTab = () => {
     const [showDaughterDependent, setShowDaughterDependent] = useState(false);
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        navigate('/')
+    },[])
 
     const handleFamilyClick = () => {
       setShowDependents(prevState => !prevState);
@@ -32,22 +38,24 @@ const SelfFamilyTab = () => {
 
     const handleSelfDependent = () => {
         setShowSelfDependent(prevState => !prevState);
-        !showSelfDependent ? dispatch(incrementCounter(1)) : dispatch(decrementCounter(1));
+        !showSelfDependent ? dispatch(addDataToMemberTitles("self")) : dispatch(removeDataFromMemberTitles("self"));
     }
 
     const handleSpouseDependent = () => {
         setShowSpouseDependent(prevState => !prevState);
-        !showSpouseDependent ? dispatch(incrementCounter(1)) : dispatch(decrementCounter(1));
+        !showSpouseDependent ? dispatch(addDataToMemberTitles("spouse")) : dispatch(removeDataFromMemberTitles("spouse"));
     }
 
-    const handleSonDependent = () => {
+    const handleSonDependent = (event) => {
+        console.log(event);
         setShowSonDependent(prevState => !prevState)
-        !showSonDependent ? dispatch(incrementCounter(1)) : dispatch(decrementCounter(1));
+        !showSonDependent ? dispatch(addDataToMemberTitles("son")) : dispatch(filterDataFromMemberTitles("son"));
     }
 
+    console.log(memberTitles);
     const handleDaughterDependent = () => {
         setShowDaughterDependent(prevState => !prevState)
-        !showDaughterDependent? dispatch(incrementCounter(1)) : dispatch(decrementCounter(1));
+        !showDaughterDependent ? dispatch(addDataToMemberTitles("daughter")) : dispatch(filterDataFromMemberTitles("daughter"));
     }
 
     return (
@@ -86,10 +94,10 @@ const SelfFamilyTab = () => {
                     <TabButton 
                         icon = {<MdBoy />} 
                         title='Dependent Son'                     
-                        onClick = {handleSonDependent}
+                        onClick = {event => handleSonDependent(event)}
                         isActive = {showSonDependent}
                     />
-                    {showSonDependent && <Counter />}
+                    {showSonDependent && <Counter title='son'/>}
                 </div>
                 <div className='Dependent-Daughter-Counter'>
                     <TabButton 
@@ -98,7 +106,7 @@ const SelfFamilyTab = () => {
                         onClick = {handleDaughterDependent}
                         isActive = {showDaughterDependent}
                     />
-                    {showDaughterDependent && <Counter />}
+                    {showDaughterDependent && <Counter title = 'daughter' />}
                 </div>
             </div>
         )}

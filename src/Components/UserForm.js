@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import UserInput from './UserInput';
 import TabButton from './TabButton';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUsersData, selectUsersData, addUser, clearCounter } from '../Redux/userSlice';
+import { selectMemberTitles, setUsersData, clearMemberTitles } from '../Redux/userSlice';
 import { BiMaleFemale } from "react-icons/bi";
 import { Link } from 'react-router-dom';
-import { selectCount } from '../Redux/userSlice';
 import './UserForm.css'
 
 const UserForm = () => {
-  const count = useSelector(selectCount);
+  const memberTitles = useSelector(selectMemberTitles);
   const [userInput, setUserInput] = useState({title: '', name: '', gender: '', dob: ''});
-  const [usersInput, setUsersInput] = useState(new Array(count).fill({title: '', name: '', gender: '', dob: ''}));
+  const [usersInput, setUsersInput] = useState(new Array(memberTitles.length).fill({title: '', name: '', gender: '', dob: ''}));
   const dispatch = useDispatch();
 
   const handleSaveUsersData = () => {
@@ -20,7 +19,7 @@ const UserForm = () => {
   };
 
   const handleBack = () => {
-    dispatch(clearCounter(0));
+    dispatch(clearMemberTitles());
   }
 
   return (
@@ -41,7 +40,7 @@ const UserForm = () => {
             usersInput={usersInput}
             setUsersInput={setUsersInput}
             index={index}
-            title='self'
+            title={memberTitles[index]}
             />
             ) 
         })}

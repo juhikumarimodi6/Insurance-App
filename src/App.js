@@ -3,8 +3,15 @@ import UserForm from './Components/UserForm';
 import SelfFamilyTab from './Components/SelfFamilyTab';
 import DataTable from './Components/DataTable';
 import { Routes, Route } from 'react-router-dom';
+// import { useEffect } from 'react';
+// import { useHistory } from 'react-router-dom';
 
 function App() {
+  // const history = useHistory();
+  // useEffect(() => {
+  //   history.push('/');
+  // }, [history]);
+
   return (
     <div className="App-container">
       <Routes>

@@ -1,22 +1,22 @@
-import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
-import { decrementCounter, incrementCounter } from "../Redux/userSlice";
+import { useDispatch, useSelector } from 'react-redux';
+import {selectMemberTitles, addDataToMemberTitles, removeDataFromMemberTitles } from "../Redux/userSlice";
 import './Counter.css'
 
-const Counter = () => {
-
+const Counter = ({title}) => {
+    const memberTitles = useSelector(selectMemberTitles);
     const [counter, setCounter] = useState(1);
 
     const dispatch = useDispatch();
 
     const handleDecrement= () => {
         counter > 1 && setCounter(prevCount => prevCount - 1);
-        counter > 1 && dispatch(decrementCounter(1));
+        counter > 1 && dispatch(removeDataFromMemberTitles(title));
     } 
 
     const handleIncrement= () => {
         setCounter(prevCount => prevCount + 1);
-        dispatch(incrementCounter(1));
+        dispatch(addDataToMemberTitles(title));
     } 
 
 

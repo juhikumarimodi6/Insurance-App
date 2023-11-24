@@ -9,8 +9,8 @@ const UserInput = (props) => {
         console.log(name , value)
         setUserInput((prevData) => ({...prevData, [name]: value}));
         setUsersInput((prevData) => {
-            const updatedUsersInput = [...prevData]; // Create a new array to update
-            updatedUsersInput[index] = { ...userInput, [name]: value }; // Update specific index with new data
+            const updatedUsersInput = [...prevData]; 
+            updatedUsersInput[index] = { ...userInput, [name]: value }; 
             return updatedUsersInput;
         });
   }

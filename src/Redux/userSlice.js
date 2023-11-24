@@ -7,6 +7,7 @@ const userSlice = createSlice({
     count: 0,
     email: "",
     mobile: "",
+    memberTitles: [],
   },
   reducers: {
     setUsersData: (state, action) => { 
@@ -18,17 +19,6 @@ const userSlice = createSlice({
     addUser: (state, action) => {
         state.usersData.push(action.payload);
     },
-    incrementCounter: (state, action) => {
-        state.count += action.payload;
-        console.log(state.count)
-    },
-    decrementCounter: (state, action) => {
-        state.count -= action.payload;
-        console.log(state.count)
-    },
-    clearCounter: (state, action) => {
-      state.count = action.payload;
-    },
     setEmail: (state, action) => {
       state.email = action.payload;
       console.log(state.email);
@@ -36,11 +26,24 @@ const userSlice = createSlice({
     setMobile: (state, action) => {
       state.mobile = action.payload;
       console.log(state.mobile);
-    }
+    },
+    addDataToMemberTitles: (state,action) => {
+      state.memberTitles.push(action.payload)
+    },
+    removeDataFromMemberTitles: (state,action) => {
+      var index = state.memberTitles.indexOf(action.payload);
+      state.memberTitles.splice(index, 1);
+    },
+    filterDataFromMemberTitles: (state,action) => {
+      state.memberTitles = state.memberTitles.filter(item => item !== action.payload);
+    },
+    clearMemberTitles: (state) => {
+      state.memberTitles = []
+    },
   },
 });
 
-export const { setUsersData, clearUsersData, addUser, incrementCounter, decrementCounter, clearCounter, setEmail, setMobile } = userSlice.actions;
-export const selectUsersData = (state) => state.user.usersData; // Selector function to access user data
-export const selectCount = (state) => state.user.count;
+export const { setUsersData, clearUsersData, addUser, setEmail, setMobile, addDataToMemberTitles, removeDataFromMemberTitles, filterDataFromMemberTitles, clearMemberTitles } = userSlice.actions;
+export const selectUsersData = (state) => state.user.usersData;
+export const selectMemberTitles= (state) => state.user.memberTitles;
 export default userSlice.reducer;

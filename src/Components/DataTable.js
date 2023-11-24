@@ -1,10 +1,26 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUsersData, selectCount } from '../Redux/userSlice';
+import { selectUsersData} from '../Redux/userSlice';
 import { MdDelete } from "react-icons/md";
+import { useNavigate} from 'react-router-dom';
+
 import './DataTable.css'
 
 const DataTable = () => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const handleBeforeUnload = () => {
+            setTimeout(() => {
+                navigate('/');
+              }, 0);
+        };
+        window.addEventListener('beforeunload', handleBeforeUnload);
+        return () => {
+          window.removeEventListener('beforeunload', handleBeforeUnload);
+        };
+      }, [navigate]);
+
     const usersData = useSelector(selectUsersData);
     const dispatch = useDispatch();
     console.log(usersData)
