@@ -6,11 +6,11 @@ const UserInput = (props) => {
 
   const handleInputChange = (event) => {
         const {name, value} = event.target;
-        console.log(name , value)
-        setUserInput((prevData) => ({...prevData, [name]: value}));
+        console.log(name , value, title)
+        setUserInput((prevData) => ({...prevData, [name]: value, title: title}));
         setUsersInput((prevData) => {
             const updatedUsersInput = [...prevData]; 
-            updatedUsersInput[index] = { ...userInput, [name]: value }; 
+            updatedUsersInput[index] = { ...userInput, [name]: value, title: title }; 
             return updatedUsersInput;
         });
   }

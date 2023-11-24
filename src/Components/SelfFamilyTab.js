@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectMemberTitles,addDataToMemberTitles, removeDataFromMemberTitles, filterDataFromMemberTitles} from "../Redux/userSlice";
+import { selectMemberTitles,addDataToMemberTitles, removeDataFromMemberTitles, filterDataFromMemberTitles, clearMemberTitles} from "../Redux/userSlice";
 import TabButton from './TabButton'
 import { BiMaleFemale } from "react-icons/bi";
 import { IoPersonOutline } from "react-icons/io5";
@@ -29,11 +29,19 @@ const SelfFamilyTab = () => {
     const handleFamilyClick = () => {
       setShowDependents(prevState => !prevState);
       setShowSelf(false);
+      setShowSelfDependent(false);
+      setShowSpouseDependent(false);
+      setShowSonDependent(false);
+      setShowDaughterDependent(false);
+      dispatch(clearMemberTitles());
+      dispatch(removeDataFromMemberTitles("self"))
     };
 
     const handleSelfClick = () => {
         setShowDependents(false);
         setShowSelf(true);
+        dispatch(clearMemberTitles());
+        dispatch(addDataToMemberTitles("self"));
     };
 
     const handleSelfDependent = () => {
@@ -114,8 +122,15 @@ const SelfFamilyTab = () => {
         
         <MobileEmail />
 
-        <Link to={'/userform'}>
-            <button className='Proceed-button'>Proceed</button>
+        <Link to={showSelf ? '/selfform': '/userform'}>
+            <button
+            className='Proceed-button'
+            disabled={(memberTitles.length < 2 || memberTitles.length > 5) && !showSelf}
+            style = {
+                {
+                    backgroundColor: ((memberTitles.length < 2 || memberTitles.length > 5) && !showSelf) ? 'grey' : 'red'
+                }
+            }>Proceed</button>
         </Link>
         </div>
     )

@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUsersData} from '../Redux/userSlice';
+import { selectUsersData, deleteUserAtIndex} from '../Redux/userSlice';
 import { MdDelete } from "react-icons/md";
 import { useNavigate} from 'react-router-dom';
 
@@ -25,8 +25,8 @@ const DataTable = () => {
     const dispatch = useDispatch();
     console.log(usersData)
 
-    const handleDeleteUser = (index) => {
-        usersData.splice(index,1);
+    const handleDeleteUser = (idx) => {
+        dispatch(deleteUserAtIndex(idx));
     }
 
     return (
@@ -50,7 +50,7 @@ const DataTable = () => {
                 <td>{item.gender}</td>
                 <td>{item.dob}</td>
                 <MdDelete 
-                    onClick={(index) => handleDeleteUser(index)}
+                    onClick={() => handleDeleteUser(index)}
                 />
             </tr>
             ))}

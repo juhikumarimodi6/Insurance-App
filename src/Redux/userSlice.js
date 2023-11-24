@@ -19,6 +19,9 @@ const userSlice = createSlice({
     addUser: (state, action) => {
         state.usersData.push(action.payload);
     },
+    deleteUserAtIndex: (state, action) => {
+      state.usersData.splice(action.payload,1);
+    },
     setEmail: (state, action) => {
       state.email = action.payload;
       console.log(state.email);
@@ -40,10 +43,11 @@ const userSlice = createSlice({
     clearMemberTitles: (state) => {
       state.memberTitles = []
     },
+
   },
 });
 
-export const { setUsersData, clearUsersData, addUser, setEmail, setMobile, addDataToMemberTitles, removeDataFromMemberTitles, filterDataFromMemberTitles, clearMemberTitles } = userSlice.actions;
+export const { setUsersData, clearUsersData, addUser, deleteUserAtIndex, setEmail, setMobile, addDataToMemberTitles, removeDataFromMemberTitles, filterDataFromMemberTitles, clearMemberTitles } = userSlice.actions;
 export const selectUsersData = (state) => state.user.usersData;
 export const selectMemberTitles= (state) => state.user.memberTitles;
 export default userSlice.reducer;
