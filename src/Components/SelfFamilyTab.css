@@ -1,0 +1,19 @@
+.SelfFamilyTab-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+}
+
+.dependents {
+    display: flex;
+    flex-direction: row;
+}
+
+.Dependent-Son-Counter, .Dependent-Daughter-Counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

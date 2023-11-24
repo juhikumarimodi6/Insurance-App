@@ -4,21 +4,21 @@ import { createSlice } from '@reduxjs/toolkit';
 const userSlice = createSlice({
   name: 'user',
   initialState: {
-    userData: {
-        name: "",
-        gender: "",
-    },
+    usersData: [],
   },
   reducers: {
-    setUserData: (state, action) => { 
-      state.userData = action.payload;
+    setUsersData: (state, action) => { 
+      state.usersData = action.payload;
     },
-    clearUserData: (state) => {
-      state.userData = null;
+    clearUsersData: (state) => {
+      state.usersData = null;
     },
+    addUser: (state, action) => {
+        state.usersData.push(action.payload);
+    }
   },
 });
 
-export const { setUserData, clearUserData } = userSlice.actions;
-export const selectUserData = (state) => state.user.userData; // Selector function to access user data
+export const { setUsersData, clearUsersData, addUser } = userSlice.actions;
+export const selectUsersData = (state) => state.user.usersData; // Selector function to access user data
 export default userSlice.reducer;

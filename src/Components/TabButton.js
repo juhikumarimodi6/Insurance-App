@@ -1,19 +1,14 @@
 import React from 'react';
+import './TabButton.css';
 
-const TabButton = ({ icon, title, onClick, isActive }) => {
+const TabButton = ({ icon, title, onClick, isActive}) => {
   return (
-    <button
-      onClick={onClick}
-      style={{
-        padding: '10px',
-        border: 'none',
-        borderRadius: '5px',
-        backgroundColor: isActive ? '#e0e0e0' : 'transparent',
-        cursor: 'pointer',
-      }}
+    <button  className='Tab-button'
+        onClick={onClick}
+      style={{ color: isActive ? 'red' : 'grey',}}
     >
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <span style={{ marginRight: '8px' }}>{icon}</span>
+      <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+        <span>{icon}</span>
         <span>{title}</span>
       </div>
     </button>

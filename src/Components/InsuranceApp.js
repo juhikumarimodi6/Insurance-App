@@ -1,44 +1,45 @@
 import React, { useState } from 'react';
+import UserInput from './UserInput';
+import TabButton from './TabButton';
 import { useDispatch } from 'react-redux';
-import { setUserData, selectUserData } from '../Redux/userSlice';
+import { setUsersData, selectUsersData, addUser } from '../Redux/userSlice';
+import { BiMaleFemale } from "react-icons/bi";
+import { Link } from 'react-router-dom';
 
 const InsuranceApp = () => {
-  const [userInput, setUserInput] = useState({name: '', age: ''});
+    const num = 3;
+  const [userInput, setUserInput] = useState({name: '', gender: '', dob: ''});
+  const [usersInput, setUsersInput] = useState(new Array(num).fill({name: '', gender: '', dob: ''}));
   const dispatch = useDispatch();
 
-  // Function to update Redux store with user data
-  const handleSaveUserData = () => {
-    console.log(userInput);
-    dispatch(setUserData(userInput));
-    setUserInput({name: '', age: ''});
+  const handleSaveUsersData = () => {
+    console.log(usersInput);
+    dispatch(setUsersData(usersInput));
   };
-
-  const handleInputChange = (event) => {
-    const {name, value} = event.target;
-    setUserInput((prevData) => ({...prevData, [name]: value}));
-  }
-
-  // Other component code...
 
   return (
     <div>
-      {/* Your existing component code... */}
-        <input
-            type='text'
-            placeholder='user name'
-            onChange={event => handleInputChange(event)}
-            name='name'
-        >
-        </input>
-        <input
-            type='text'
-            placeholder='age'
-            onChange={event => handleInputChange(event)}
-            name='age'
-        >
-        </input>
-      {/* Example of updating Redux store with user data */}
-      <button onClick={handleSaveUserData}>Save User Data to Redux</button>
+        <TabButton 
+        icon = {<BiMaleFemale />}
+        title ='family'
+        />
+        {usersInput.map((userInput, index) => {
+           return(
+            <UserInput 
+            key={index}
+            userInput={userInput}
+            setUserInput={setUserInput}
+            usersInput={usersInput}
+            setUsersInput={setUsersInput}
+            index={index}
+            />
+            ) 
+        })}
+
+      <Link to={'/'}>
+            <button>Back</button>
+      </Link>
+      <button onClick={handleSaveUsersData}>Proceed</button>
     </div>
   );
 };
