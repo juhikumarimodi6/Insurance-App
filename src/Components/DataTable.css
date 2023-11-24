@@ -1,0 +1,14 @@
+.table-head {
+    background-color: rgb(44, 44, 116);
+    color: white;
+}
+
+.table-body {
+    background-color: rgb(227, 225, 225);
+    color: black;
+    border:grey;
+}
+
+th, td {
+    padding: 3px 10px;
+}

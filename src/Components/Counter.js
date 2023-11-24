@@ -1,18 +1,36 @@
-import { MdDelete } from "react-icons/md";
+import { useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { decrementCounter, incrementCounter } from "../Redux/userSlice";
 import './Counter.css'
 
 const Counter = () => {
+
+    const [counter, setCounter] = useState(1);
+
+    const dispatch = useDispatch();
+
+    const handleDecrement= () => {
+        counter > 1 && setCounter(prevCount => prevCount - 1);
+        counter > 1 && dispatch(decrementCounter(1));
+    } 
+
+    const handleIncrement= () => {
+        setCounter(prevCount => prevCount + 1);
+        dispatch(incrementCounter(1));
+    } 
+
+
     return (
         <div className="counter-container">
-            <button 
+           <button 
                 className="left"
-                // onClick={() => handleDecrement()}
+                onClick={handleDecrement}
             > -</button>
-
-            <div className="count">1</div>
+            
+            <div className="count">{counter}</div>
             <button 
                 className="right"
-                // onClick={() => handleIncrement(id)}
+                onClick={handleIncrement}
             > + </button>
         </div>
     )

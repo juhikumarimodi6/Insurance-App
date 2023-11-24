@@ -1,4 +1,19 @@
 .counter-container {
     display: flex;
     flex-direction: row;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.left, .right{
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.count {
+    background-color: rgb(218, 211, 211);
+    margin: 2px;
+    padding: 2px 5px;
 }

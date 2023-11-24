@@ -1,10 +1,11 @@
 .Tab-button {
-    padding: '10px';
+    padding: 10px;
     border: 1px solid grey;
     border-radius: 5px;
     cursor: 'pointer';
     height: 50px;
     background-color: white;
+    margin:10px;
 }
 
 .Tab-button:active {

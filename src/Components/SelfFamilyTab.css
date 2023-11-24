@@ -17,3 +17,13 @@
     align-items: center;
 }
 
+.Proceed-button {
+    position: relative;
+    top:10px;
+    left: 150px; /* Adjust as needed */
+    padding: 5px;
+    background-color: Red;
+    border: none;
+    color:white;
+}
+

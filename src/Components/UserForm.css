@@ -1,0 +1,15 @@
+.family {
+    display: flex;
+    justify-content: center;
+}
+
+.back-proceed {
+    display: flex;
+}
+
+.back, .proceed {
+    margin: 2px;
+    color: white;
+    background-color: red;
+    border: none;
+}

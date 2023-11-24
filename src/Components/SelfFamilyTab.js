@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { decrementCounter, incrementCounter} from "../Redux/userSlice";
 import TabButton from './TabButton'
 import { BiMaleFemale } from "react-icons/bi";
 import { IoPersonOutline } from "react-icons/io5";
-import { MdPerson3 } from "react-icons/md";
-import { MdGirl } from "react-icons/md";
-import { MdBoy } from "react-icons/md";
+import { MdPerson3, MdGirl, MdBoy } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import Counter from './Counter';
+import MobileEmail from './MobileEmail';
 import './SelfFamilyTab.css'
 
 const SelfFamilyTab = () => {
@@ -16,6 +17,8 @@ const SelfFamilyTab = () => {
     const [showSpouseDependent, setShowSpouseDependent] = useState(false);
     const [showSonDependent, setShowSonDependent] = useState(false);
     const [showDaughterDependent, setShowDaughterDependent] = useState(false);
+
+    const dispatch = useDispatch();
 
     const handleFamilyClick = () => {
       setShowDependents(prevState => !prevState);
@@ -28,25 +31,29 @@ const SelfFamilyTab = () => {
     };
 
     const handleSelfDependent = () => {
-        setShowSelfDependent(prevState => !prevState)
+        setShowSelfDependent(prevState => !prevState);
+        !showSelfDependent ? dispatch(incrementCounter(1)) : dispatch(decrementCounter(1));
     }
 
     const handleSpouseDependent = () => {
-        setShowSpouseDependent(prevState => !prevState)
+        setShowSpouseDependent(prevState => !prevState);
+        !showSpouseDependent ? dispatch(incrementCounter(1)) : dispatch(decrementCounter(1));
     }
 
     const handleSonDependent = () => {
         setShowSonDependent(prevState => !prevState)
+        !showSonDependent ? dispatch(incrementCounter(1)) : dispatch(decrementCounter(1));
     }
 
     const handleDaughterDependent = () => {
         setShowDaughterDependent(prevState => !prevState)
+        !showDaughterDependent? dispatch(incrementCounter(1)) : dispatch(decrementCounter(1));
     }
 
     return (
         <div className='SelfFamilyTab-container'>
         <p>Choose Members</p>
-        <div >
+        <div>
             <TabButton 
                 icon = {<IoPersonOutline />}
                 title ='Self'
@@ -97,23 +104,10 @@ const SelfFamilyTab = () => {
         )}
         </div>
         
-        
-        <div>
-            <p>Personal Details</p>
-            <input
-                type='tel'
-                id='phoneNumber'
-                placeholder='Mobile Number(10-digit)'
-            />
-            <input
-                type='email'
-                id='email'
-                placeholder='Email Id'
-            />
-        </div>
+        <MobileEmail />
 
         <Link to={'/userform'}>
-            <button>Proceed</button>
+            <button className='Proceed-button'>Proceed</button>
         </Link>
         </div>
     )
