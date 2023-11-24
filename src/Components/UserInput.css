@@ -2,3 +2,11 @@
     margin:5px;
 }
 
+.user-input-unit {
+    display: flex;
+}
+
+.user-title {
+    width:70px;
+}
+

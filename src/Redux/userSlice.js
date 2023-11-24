@@ -18,6 +18,7 @@ const userSlice = createSlice({
     },
     addUser: (state, action) => {
         state.usersData.push(action.payload);
+
     },
     deleteUserAtIndex: (state, action) => {
       state.usersData.splice(action.payload,1);
@@ -31,7 +32,9 @@ const userSlice = createSlice({
       console.log(state.mobile);
     },
     addDataToMemberTitles: (state,action) => {
-      state.memberTitles.push(action.payload)
+      state.memberTitles.push(action.payload);
+      
+      state.memberTitles.sort();
     },
     removeDataFromMemberTitles: (state,action) => {
       var index = state.memberTitles.indexOf(action.payload);

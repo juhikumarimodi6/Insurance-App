@@ -5,6 +5,7 @@
 
 .back-proceed {
     display: flex;
+    justify-content: flex-end;
 }
 
 .back, .proceed {
@@ -13,3 +14,4 @@
     background-color: red;
     border: none;
 }
+

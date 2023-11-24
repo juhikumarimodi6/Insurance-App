@@ -17,7 +17,7 @@ const UserInput = (props) => {
 
   return (
     <div className="user-input-unit">
-        <span className="user-title">{title}</span>
+        <div className="user-title">{title}</div>
         <input
             type='text'
             placeholder='Full Name'

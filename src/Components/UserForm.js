@@ -31,6 +31,7 @@ const UserForm = () => {
                 isActive = {true}
             />
         </div>
+        
         {usersInput.map((userInput, index) => {
            return(
             <UserInput 
