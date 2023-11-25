@@ -124,7 +124,7 @@ const SelfFamilyTab = () => {
 
         <Link to={showSelf ? '/selfform': '/userform'}>
             <button
-            className='Proceed-button'
+             className='Proceed-button'
             disabled={(memberTitles.length < 2 || memberTitles.length > 5) && !showSelf}
             style = {
                 {

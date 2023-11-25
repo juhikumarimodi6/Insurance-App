@@ -1,0 +1,24 @@
+.user-card {
+    background-color: antiquewhite;
+    border-radius: 5px;
+}
+
+.card-table-container {
+    width:60vw;
+}
+
+.card-table-head {
+    background-color: blue;
+    color:white;
+    text-align:center;
+}
+
+.delete {
+    text-align: center;
+    border: solid;
+    background-color: skyblue;
+}
+
+.card-table-body {
+    background-color: rgb(237, 230, 230);
+}
