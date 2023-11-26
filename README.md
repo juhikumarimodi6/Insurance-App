@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Insurance App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Insurance App is a web application designed to facilitate the selection of insurance coverage for individuals and their families.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Description](#description)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
 
-### `npm start`
+## Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The Insurance App consists of a user interface with two main tabs, "Self" and "Family", allowing users to select insurance coverage for themselves and their family members. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Tab Selection**: Choose between "Self" and "Family" tabs to dynamically switch insurance coverage selection.
+- **Input Fields**: Enter email and mobile number.
+- **Dynamic Button**: The "Proceed" button initially disabled, becomes enabled when certain conditions are met.
+- **Family Selection**: Within the "Family" tab, users can select individuals from four categories: self, spouse, dependent daughter, and dependent son.
+- **Counter**: Keeps track of the number of selected sons and daughters separately.
+- **Selection Limits**: Users must select a minimum of 2 and a maximum of 5 individuals from the family.
+- **Dynamic Enable/Disable**: The "Proceed" button within the "Family" tab adjusts its state based on the selected individuals.
+- **Form Page**: Upon clicking the "Proceed" button, users are directed to a form page.
+  - **Self Form**: For the "Self" selection, users fill in details such as name, gender, and date of birth.
+  - **Navigation Buttons**: Users can go back to the previous step or proceed to the next step.
+- **Responsive Design**: 
+  - For mobile devices, the form is displayed as a carousel to optimize the user experience.
+  - For desktop screens, the form is presented as a table layout to accommodate larger screens.
 
-### `npm run build`
+## Usage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Open the Insurance App.
+2. Select the "Self" or "Family" tab.
+3. Enter your email and mobile number.
+4. For the "Family" tab, select individuals from the available categories.
+5. Ensure you have selected a minimum of 2 and a maximum of 5 individuals.
+6. Click the "Proceed" button to access the form page.
+7. Fill in the required details in the form based on the selected category.
+8. Use the back and proceed buttons for navigation between steps.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologies Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React
+- React libraries
+- React hooks
+- Redux
+- JavaScript
+- CSS
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Contact
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+For any inquiries or further information, feel free to reach out to me via email at [juhikumarimodi6@gmail.com](mailto:juhikumarimodi6@gmail.com).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
