@@ -4,7 +4,6 @@ import SelfFamilyTab from './Components/SelfFamilyTab';
 import DataTable from './Components/DataTable';
 import { Routes, Route } from 'react-router-dom';
 import SelfForm from './Components/SelfForm';
-import { useEffect } from 'react';
 
 function App() {
 

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectMemberTitles,addDataToMemberTitles, removeDataFromMemberTitles, filterDataFromMemberTitles, clearMemberTitles} from "../Redux/userSlice";
 import TabButton from './TabButton'
 import { BiMaleFemale } from "react-icons/bi";
 import { IoPersonOutline } from "react-icons/io5";
 import { MdPerson3, MdGirl, MdBoy } from "react-icons/md";
-import { Link, useNavigate} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Counter from './Counter';
 import MobileEmail from './MobileEmail';
 import './SelfFamilyTab.css'
@@ -20,11 +20,6 @@ const SelfFamilyTab = () => {
     const [showDaughterDependent, setShowDaughterDependent] = useState(false);
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        navigate('/')
-    },[])
 
     const handleFamilyClick = () => {
       setShowDependents(prevState => !prevState);

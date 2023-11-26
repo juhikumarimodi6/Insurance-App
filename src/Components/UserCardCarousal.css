@@ -1,3 +1,23 @@
 .carousel-container {
-    width:60vw;
+    width:80vw;
+    height: 80vh;
   }
+
+  .custom-arrow {
+    position: absolute;
+    top: 40%;
+    z-index: 5;
+    background-color: transparent;
+    outline: none;
+    border: none;
+  }
+
+  .custom-prev-arrow {
+    left: -10%;
+  }
+
+  .custom-next-arrow {
+    right: -10%;
+  }
+
+

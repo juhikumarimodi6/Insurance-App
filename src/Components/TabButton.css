@@ -11,3 +11,9 @@
 .Tab-button:active {
     color: red;
 }
+
+@media only screen and (max-width: 420px) {
+    .Tab-button {
+        height: 70px;
+    }
+}

@@ -33,7 +33,6 @@ const userSlice = createSlice({
     },
     addDataToMemberTitles: (state,action) => {
       state.memberTitles.push(action.payload);
-      
       state.memberTitles.sort();
     },
     removeDataFromMemberTitles: (state,action) => {

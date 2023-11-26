@@ -1,6 +1,6 @@
 import Slider from 'react-slick'; // Example with React Slick
-import { useDispatch, useSelector } from 'react-redux';
-import { selectUsersData, deleteUserAtIndex} from '../Redux/userSlice';
+import { useSelector } from 'react-redux';
+import { selectUsersData} from '../Redux/userSlice';
 import UserCard from './UserCard';
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import 'slick-carousel/slick/slick.css';
@@ -10,7 +10,6 @@ import './UserCardCarousal.css'
 const UserCardCarousel = () => {
 
     const usersData = useSelector(selectUsersData);
-    const dispatch = useDispatch();
     console.log(usersData)
 
     

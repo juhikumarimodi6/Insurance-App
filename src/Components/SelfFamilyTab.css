@@ -23,7 +23,13 @@
     left: 150px;
     padding: 5px;
     background-color: Red;
-    border: none;
+    border: solid;
     color:white;
+}
+
+@media only screen and (max-width: 750px) {
+    .Proceed-button {
+        left:0px;
+    }
 }
 

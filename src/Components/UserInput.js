@@ -26,7 +26,7 @@ const UserInput = (props) => {
             className="full-name"
         />
         <select name='gender' onChange={event => handleInputChange(event)} className="gender">
-            <option value="">Select</option>
+            <option value="">Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
         </select>
@@ -35,6 +35,7 @@ const UserInput = (props) => {
             onChange={event => handleInputChange(event)}
             name='dob'
             className="dob"
+            placeholder='dd/mm/yyyy'
         />
     </div>
   );

@@ -16,3 +16,11 @@
     border: none;
 }
 
+@media only screen and (max-width: 750px) {
+    .back-proceed {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+

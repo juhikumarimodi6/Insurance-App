@@ -2,3 +2,11 @@
     padding: 2px;
     margin:5px;
 }
+
+@media only screen and (max-width: 750px) {
+    .mobile, .email  {
+        display: flex;
+        flex-direction: column;
+        margin:5vh auto;
+    }
+}
