@@ -73,7 +73,7 @@ const SelfFamilyTab = () => {
             />
             <TabButton 
                 icon = {<BiMaleFemale />}
-                title ='family'
+                title ='Family'
                 onClick = {handleFamilyClick}
                 isActive = {showDependents}
             />
